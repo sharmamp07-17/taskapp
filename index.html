@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task App</title>
+</head>
+
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  font-family: century;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #153677, #4e085f);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: 10%;
+}
+
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  background: #fff;
+  margin: 20px 0px 20px;
+  padding: 40px 30px 30px;
+  border-radius: 10px;
+}
+.head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+.head img {
+  background: transparent;
+  height: 30px;
+  width: 30px;
+  margin: 0 10px 20px;
+}
+
+.todo-app h1 {
+  color: #002765;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  font-size: 30px;
+}
+
+.todo-app hr {
+  height: 3px;
+  width: 100%;
+  background-color: #e00707;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+input {
+  flex: 1;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 18px;
+  color: #dc143c;
+  font-weight: bolder;
+}
+
+input::placeholder {
+  color: #dc143c;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 40px;
+  background: #00fa9a;
+  font-size: 18px;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+button:hover {
+  font-weight: bolder;
+}
+
+ul li {
+  position: relative;
+  margin: 5px 0px 30px;
+  padding: 12px 8px 12px 50px;
+  list-style: none;
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: #e8e4c9;
+  align-items: center;
+  text-transform: capitalize;
+  border-radius: 30px;
+  user-select: none;
+  transform: scale(1);
+  cursor: pointer;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  background-image: url(https://static.vecteezy.com/system/resources/previews/001/192/291/original/circle-png.png);
+  background-size: cover;
+  background-position: center;
+  top: 15px;
+  left: 12px;
+}
+
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+  transition: color 0.5s all;
+}
+
+ul li.checked::before {
+  background-image: url(https://www.pngmart.com/files/16/Green-Check-Mark-PNG-Pic.png);
+  height: 18px;
+  width: 18px;
+  top: 15px;
+  left: 12px;
+}
+
+ul li img {
+  position: relative;
+  float: right;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  margin-top: -3px;
+  margin-right: 5px;
+}
+
+ul li img:hover {
+  background: red;
+}
+
+@media screen and (max-width: 550px) {
+  body {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .todo-app h1 {
+    font-size: 20px;
+  }
+
+  .head img{
+    height: 25px;
+    width: 25px;
+   }
+
+  input {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+
+  ul li {
+    margin: 5px 0px 20px;
+    font-size: 15px;
+  }
+
+  ul li::before {
+    height: 16px;
+    width: 16px;
+    top: 13px;
+    left: 10px;
+  }
+
+  ul li.checked::before {
+    background-image: url(https://www.pngmart.com/files/16/Green-Check-Mark-PNG-Pic.png);
+    height: 16px;
+    width: 16px;
+    top: 13px;
+    left: 10px;
+  }
+
+  ul li img {
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+    margin-top: -4px;
+    border-radius: 50%;
+  }
+
+}
+
+@media screen and (max-width: 395px) {
+  body {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .todo-app {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 20px 0px 20px;
+    padding: 40px 30px 30px;
+    border-radius: 10px;
+  }
+
+  .todo-app h1 {
+    font-size: 16px;
+  }
+
+  .head img{
+    height: 20px;
+    width: 20px;
+   }
+
+   .row{
+    margin-bottom: 15px;
+   }
+
+  input {
+    font-size: 8px;
+  }
+
+  button {
+    font-size: 8px;
+  }
+
+  ul li {
+    margin: 5px 0px 15px;
+    font-size: 10px;
+  }
+
+  ul li::before {
+    height: 14px;
+    width: 13px;
+    top: 11px;
+    left: 10px;
+  }
+
+  ul li.checked::before {
+    background-image: url(https://www.pngmart.com/files/16/Green-Check-Mark-PNG-Pic.png);
+    height: 13px;
+    width: 13px;
+    top: 11px;
+    left: 10px;
+  }
+
+  ul li img {
+    width: 23px;
+    height: 23px;
+    padding: 5px;
+    margin-top: -6px;
+    border-radius: 50%;
+  }
+}
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <div class="head">
+                <h1>To-Do List</h1> <img src="https://w7.pngwing.com/pngs/609/552/png-transparent-todolist-planing-list-planlist-todo-icon.png" alt="logo"></div>
+            <hr>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add you text">
+                <button onclick="addTask()" type="submit">Add</button>
+            </div>
+            <ul id="list-container">
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const inputBox = document.getElementById('input-box')
+const listContainer = document.getElementById('list-container')
+
+function addTask() {
+    if (inputBox.value == '') {
+        alert(" You must write something!")
+    }
+    else {
+        let newLi = document.createElement('li')
+        newLi.innerHTML = inputBox.value
+        listContainer.appendChild(newLi)
+
+        let img = document.createElement('img')
+        img.src = "https://cdn-icons-png.flaticon.com/512/70/70757.png"
+        newLi.appendChild(img)
+    }
+    inputBox.value = ""
+    saveData()
+}
+
+
+listContainer.addEventListener("click", function (e) {
+    if (e.target.tagName == "LI") {
+        e.target.classList.toggle("checked");
+        saveData();
+    }
+    else if (e.target.tagName === "IMG") {
+        e.target.parentElement.remove();
+        saveData();
+    }
+}, false);
+
+
+function saveData() {
+    localStorage.setItem("data", listContainer.innerHTML);
+}
+
+function shoTask() {
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+shoTask();
+</script>
+
+</html>
